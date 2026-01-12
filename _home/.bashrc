@@ -45,3 +45,8 @@ rgrep() {
 rfind() {
     find . -iname "*$1*" 2>/dev/null
 }
+
+# Display current weather using wttr.in API
+wttr() {
+    curl -s "https://wttr.in/${1:-}?2"
+}
