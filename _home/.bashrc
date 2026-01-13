@@ -22,11 +22,13 @@ cd ~
 
 # Prompt with git branch
 _git_branch() {
-    local branch
-    branch=$(git branch --show-current 2>/dev/null) || return
-    [[ -n $branch ]] && printf ' [%s]' "$branch"
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
-PS1="\n\[${MAGENTA}\]\w\[${CYAN}\]\$(_git_branch) \[${YELLOW}\]\$ \[${RESET}\]"
+PS1="\n\
+\[${MAGENTA}\]\w\
+\[${CYAN}\]\$(_git_branch) \
+\[${YELLOW}\]\$ \
+\[${RESET}\]"
 
 # List directory alias
 alias ls='ls -X --color=auto'
