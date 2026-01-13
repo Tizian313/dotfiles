@@ -26,7 +26,7 @@ _git_branch() {
     branch=$(git branch --show-current 2>/dev/null) || return
     [[ -n $branch ]] && printf ' [%s]' "$branch"
 }
-PS1="\n${MAGENTA}\w${CYAN}\$(_git_branch) ${YELLOW}\$ ${RESET}"
+PS1="\n\[${MAGENTA}\]\w\[${CYAN}\]\$(_git_branch) \[${YELLOW}\]\$ \[${RESET}\]"
 
 # List directory alias
 alias ls='ls -X --color=auto'
