@@ -35,9 +35,9 @@ _git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 PS1="\n\
-\[${MAGENTA}\]\w\
-\[${CYAN}\]\$(_git_branch) \
-\[${YELLOW}\]\$ \
+\[${BRIGHT_MAGENTA}\]\w\
+\[${BRIGHT_YELLOW}\]\$(_git_branch) \
+\[${BRIGHT_GREEN}\]\$ \
 \[${RESET}\]"
 
 # List directory alias
